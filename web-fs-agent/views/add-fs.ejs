@@ -1,0 +1,104 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles/add-fs.css" />
+  <title>Agent add food-stall</title>
+</head>
+
+<body>
+    <main>
+        <p>Welcome <%= locals.name %></p>
+        <a href="/agent"><h1>Home</h1></a>
+
+    <% if (locals.profile === "admin") { %>
+        <div class="" id="">
+            <a href="/agent/admin"><h1>Agent Management Link</h1></a>  
+        </div> 
+    <% } %>
+    
+    <% if (locals.searchUser) { %>
+        <div class="" id="">
+            <a href="/agent"><h1>Search Food Stall User</h1></a>  
+        </div> 
+        <div class="" id="search-box">
+        <div>
+            <form id="">
+            <label for="idTel">Search Food Stall by username:</label>
+            <input type="text" id="username" name="username" placeholder="user name" autocomplete="off" required="true">
+
+            <label for="submit"></label>
+            <input id="search" type="submit" value="Search" formaction="/searchbyusername" formmethod="post">
+            </form>
+        </div>
+        </div>
+    <% } %> 
+
+    <% if (locals.foundUser) { %>
+        <div class="" id="">
+            <a href="/agent"><h1>Edit Food Stall User</h1></a>  
+        </div> 
+        <div class="edit-box" id="">
+        <% userDetail.forEach(user => { %>
+        <h2>Found user 😃</h2>
+            <form id="myForm" method="get">
+            <p>User Id: <%= user.user_id %></p>
+
+            <h3>Username: <%= user.username %></h3>
+
+            <h4>Food Stall Name: <%= user.name %></h4>
+
+            <p>Agent ID: <%= user.agent_id %></p>
+
+            <% if (agentId === user.agent_id) { %>
+                <label for="submit"></label>
+                <input id="submit" type="submit" value="Edit Username" formaction="/agent/admin/edituser/<%= user.user_id %>">
+                <input id="submit" type="submit" value="Edit FoodStall Name" formaction="/agent/admin/editfs/<%= user.fs_id %>">
+                <input id="submit" type="submit" value="Reset Password" formaction="/agent/admin/setuserpassword/<%= user.user_id %>">
+            <% } %>
+            
+            </form>
+        <% }) %>
+        
+        </div>
+    <% } %>
+
+    
+
+    <% if (locals.newUserFs) { %>
+        <div class="" id="">
+            <a href="/agent"><h1>Create New Food Stall User</h1></a>  
+        </div> 
+        <div class="edit-box" id="">
+        <h2>Username not in used, adding new user and food stall</h2>
+        <form id="myForm" method="post">
+            <label for="usernameInput">Username:</label>
+            <input type="text" id="" name="username" value="<%= locals.userNameInSearch %>" required="true">
+
+            <label for="passwordINput">User password:</label>
+            <input type="text" id="" name="password" placeholder="password" required="true">
+
+            <label for="fsName">Food Stall Name:</label>
+            <input type="text" id="" name="foodstallName" placeholder="food stall bussiness name" required="true">
+
+            <label for="agentId"></label>
+            <input type="number" id="" name="agentId" value="<%= locals.agentId %>" required="true" hidden>
+
+            <label for="submit"></label>
+            <input id="submit" type="submit" value="Create" formaction="/newfoodstall">
+        </form>
+        </div>
+    <% } %>
+
+    
+
+    <script src="/scripts/add-guest.js" charset="utf-8"></script>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <footer>Copyright © Simapps Solution <%= new Date().getFullYear() %>
+    </footer>
+</body>
+
+</html>

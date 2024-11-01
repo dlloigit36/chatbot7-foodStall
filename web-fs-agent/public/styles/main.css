@@ -1,0 +1,122 @@
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: #59616c;
+  font-family: "Roboto", sans-serif;
+}
+
+/* curent time h1 start here */
+#heading h1, h2 {
+  color: #fff;
+  margin: 5px;
+  /* padding: 10px; */
+}
+
+
+a:link, a:visited {
+  background-color: #f44336;
+  color: rgb(23, 21, 36);
+  /* padding: 14px 25px; */
+  text-align: center;
+  text-decoration: none;
+  /* display: inline-block; */
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+
+.box {
+  /* max-width: 400px; */
+  margin: 10px auto;
+  /* background: white; */
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+
+#service-list {
+  text-align: left;
+  max-width: 400px;
+  margin: 10px auto;
+  background-color: #fff;
+  padding: 0px 40px 0px 0px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#wait-list h2 {
+  color: #f44336;
+  text-align: left;
+  margin-top: 0px;
+  /* margin: 0px; */
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: 1rem;
+  border-bottom: 1px solid #0c0909;
+  list-style-type: none;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+small {
+  display: block;
+  margin-bottom: 5px;
+  color: #240758;
+}
+
+/* ack and delivered form start here */
+input[type="submit"] {
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#ack {
+  background-color: #007bff;
+}
+
+#ack:hover {
+  background-color: #226ab7;
+}
+
+#deliver {
+  background-color: #e74c3c;
+}
+
+#deliver:hover {
+  background-color: #c0392b;
+}
+
+
+@media screen and (max-width: 767px) {
+  
+}
+
+footer {
+  flex: 0 0 auto;
+  color: white;
+  text-align: center;
+}
+

@@ -1,0 +1,155 @@
+html {
+    box-sizing: border-box;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    background: #59616c;
+    font-family: "Roboto", sans-serif;
+  }
+
+main > p {
+  color: #ccc;
+  text-align: center;
+}
+
+  
+h1, #home-link {
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+  }
+
+
+a:link, a:visited {
+    background-color: #f44336;
+    color: rgb(23, 21, 36);
+    /* padding: 14px 25px; */
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+  }
+  
+a:hover, a:active {
+    background-color: red;
+  }
+  
+/* .box {
+    margin: 20px auto;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  } */
+
+
+#search-box {
+    /* max-width: 600px; */
+    /* background-color: #a683e3; */
+    text-align: left;
+    /* padding: 0px 40px 20px 40px; */
+    /*  */
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px 40px 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+.edit-box {
+    text-align: left;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 5px 40px 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
+form {
+    margin-top: 20px;
+    
+  }
+
+#myForm {
+  border-bottom: 1px solid #0c0909;
+}
+
+#myForm:last-child {
+  border-bottom: none;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+
+input[type="submit"] {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+
+#search {
+    background-color: #2ecc71;
+  }
+
+#search:hover {
+    background-color: #27ae60;
+  }
+
+#submit {
+    background-color: #3498db;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+#submit:hover {
+    background-color: #2980b9;
+  }
+
+#bt-home {
+    background-color: grey;
+  }
+
+#bt-home:hover {
+    background-color: rgb(82, 65, 65);
+  }
+
+
+::placeholder {
+    color: lightgray;
+    opacity: 1;
+  }
+
+footer {
+    flex: 0 0 auto;
+    color: white;
+    text-align: center;
+  }
+  
+  
+  

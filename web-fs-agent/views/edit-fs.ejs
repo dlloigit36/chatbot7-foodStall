@@ -1,0 +1,85 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles/add-fs.css" />
+  <title>FS Agent</title>
+</head>
+
+<body>
+    <main>
+        <p>Welcome <%= locals.name %></p>
+        <a href="/agent"><h1>Home</h1></a>
+       
+    <% if (locals.editFs && locals.profile == "agent") { %>
+        <div class="" id="">
+            <a href="/agent"><h1>Edit Food Stall Details</h1></a>  
+        </div> 
+        <div class="edit-box" id="">
+            <form id="myForm" method="post">
+            <label for="fsId">Food Stall Id:</label>
+            <input type="text" id="" name="fsId" value="<%= fsDetail.id %>" readonly="true">
+
+            <label for="fsName">Food Stall Name:</label>
+            <input type="text" id="" name="fsName" value="<%= fsDetail.name %>" required="true">
+
+            <label for="submit"></label>
+            <input id="submit" type="submit" value="Update" formaction="/agent/admin/updatefsname">
+
+            </form>
+        </div>
+    <% } %>
+
+    <% if (locals.editUser && locals.profile == "agent") { %>
+        <div class="" id="">
+            <a href="/agent"><h1>Edit User Details</h1></a>  
+        </div> 
+        <div class="edit-box" id="">
+            <form id="myForm" method="post">
+            <label for="userId">User Id:</label>
+            <input type="text" id="" name="userId" value="<%= userDetail.id %>" readonly="true">
+
+            <label for="userName">User Name:</label>
+            <input type="text" id="" name="userName" value="<%= userDetail.username %>" required="true">
+
+            <label for="submit"></label>
+            <input id="submit" type="submit" value="Update" formaction="/agent/admin/updateuser">
+
+            </form>
+        </div>
+    <% } %>
+
+    
+
+    <% if (locals.resetPassword && locals.profile == "agent") { %>
+        <div class="" id="">
+            <a href="/agent"><h1>Reset Food Stall User Password</h1></a>  
+        </div> 
+        <div class="edit-box" id="">
+        
+        <form id="myForm" method="post">
+            <label for="userId"></label>
+            <input type="text" id="" name="userId" value="<%= userDetail.id %>" readonly="true" hidden>
+
+            <label for="userPassword">Reset Password for <%= userDetail.username %>:</label>
+            <input type="password" id="" name="userPassword" placeholder="enter new password to reset" required>
+
+            <label for="submit"></label>
+            <input id="submit" type="submit" value="Reset Password" formaction="/agent/admin/resetuserpassword">
+
+        </form>
+        </div>
+    <% } %>
+
+    
+
+    <script src="/scripts/add-guest.js" charset="utf-8"></script>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <footer>Copyright © Simapps Solution <%= new Date().getFullYear() %>
+    </footer>
+</body>
+
+</html>

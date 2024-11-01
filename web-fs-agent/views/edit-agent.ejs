@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles/add-fs.css" />
+  <title>FS Agent</title>
+</head>
+
+<body>
+    <main>
+       
+    <% if (locals.editAgent && locals.profile == "admin") { %>
+        <div class="" id="">
+            <a href="/agent/admin"><h1>Edit Agent Details</h1></a>  
+        </div> 
+        <div class="edit-box" id="">
+            <form id="myForm" method="post">
+            <label for="agentId">Agent Id:</label>
+            <input type="text" id="" name="agentId" value="<%= agentDetail.id %>" readonly="true">
+
+            <label for="email">Email:</label>
+            <input type="text" id="" name="email" value="<%= agentDetail.email %>" required="true">
+
+            <label for="agentFirstName">First Name:</label>
+            <input type="text" id="" name="firstName" value="<%= agentDetail.first_name %>" required="true">
+
+            <label for="agentLastName">Last Name:</label>
+            <input type="text" id="" name="lastName" value="<%= agentDetail.last_name %>" required="true">
+
+            <label for="submit"></label>
+            <input id="submit" type="submit" value="Update" formaction="/agent/admin/updateagent">
+
+            </form>
+        </div>
+    <% } %>
+
+    
+
+    <% if (locals.resetPassword && locals.profile == "admin") { %>
+        <div class="" id="">
+            <a href="/agent/admin"><h1>Reset Agent Password</h1></a>  
+        </div> 
+        <div class="edit-box" id="">
+        
+        <form id="myForm" method="post">
+            <label for="agentId"></label>
+            <input type="text" id="" name="agentId" value="<%= agentDetail.id %>" readonly="true" hidden>
+
+            <label for="agentPassword">Reset Password for <%= agentDetail.email %>:</label>
+            <input type="password" id="" name="agentPassword" placeholder="enter new password to reset">
+
+            <label for="submit"></label>
+            <input id="submit" type="submit" value="Reset Password" formaction="/agent/admin/agentresetpassword">
+
+        </form>
+        </div>
+    <% } %>
+
+    
+
+    <script src="/scripts/add-guest.js" charset="utf-8"></script>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <footer>Copyright © Simapps Solution <%= new Date().getFullYear() %>
+    </footer>
+</body>
+
+</html>

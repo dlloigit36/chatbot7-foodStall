@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Stall Waiting Number</title>
+  <link rel="stylesheet" href="./styles/main.css">
+</head>
+
+<body>
+  <p>Welcome <%= locals.username %></p>
+  <div class="box" id="heading">
+    <a href="/">
+      <h1>
+        <%= new Date(locals.currentTime).toLocaleDateString(["en-MY"]) %> 
+        <%= new Date(locals.currentTime).toLocaleTimeString(["en-MY"]) %>
+      </h1>
+      <h1><%= locals.shopName %></h1>
+      <h2>Total: <%= locals.totalWait %></h2>
+    </a>
+  </div>
+
+  <div class="box" id="service-list">
+    <ul id="wait-list">
+      <% waitingList.forEach(request=> { %>
+        <li>
+          <h2>
+            <%=request.number%>
+          </h2>
+          <small>
+            Requested: <%= new Date(request.created_at).toLocaleDateString(["en-MY"]) %> 
+            <%= new Date(request.created_at).toLocaleTimeString(["en-MY"]) %>
+          </small>
+          <small>
+            call count: <%=request.call_count%>
+          </small>      
+          <small>
+            Last call: <%= (request.last_call_d === null) ? null : new Date(request.last_call_d).toLocaleDateString(["en-MY"]) %> 
+            <%= (request.last_call_d === null) ? null : new Date(request.last_call_d).toLocaleTimeString(["en-MY"]) %> 
+          </small>
+          
+          <form id="" method="get">
+              <input id="ack" type="submit" value="Calling 📢" formaction="/waitnumber/call/<%=request.id%>">
+            <% if (request.call_count > 0) { %>
+              <input id="deliver" type="submit" value="Collected 🍽️" formaction="/waitnumber/collected/<%=request.id%>">
+             <% } %>
+          </form>
+
+        </li>
+        <% }); %>
+    </ul>
+  </div>
+
+  <script>
+    
+  </script>
+  <footer>Copyright © Simapps Solution <%= new Date().getFullYear() %></footer>
+</body>
+
+</html>

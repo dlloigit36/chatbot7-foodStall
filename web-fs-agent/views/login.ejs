@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logon</title>
+  <link rel="stylesheet" href="./styles/logon.css">
+</head>
+
+<body>
+  <div class="" id="heading">
+      <h1><%= locals.title %></h1>
+  </div>
+
+  <div class="box" id="service-list">
+    <form id="myForm" method="post">      
+          <input type="email" id="username" name="username" placeholder="agent email" autocomplete="off" required="true">
+          <input type="password" id="current-password" name="password" placeholder="password" autocomplete="off" required="true">
+
+          <label for="submit"></label>
+          <input id="submit" type="submit" value="Login" formaction="/login">
+        </form>
+  </div>
+
+  
+
+  
+  <script>
+    
+  </script>
+  <footer>Copyright © Simapps Solution <%= new Date().getFullYear() %></footer>
+</body>
+
+</html>
