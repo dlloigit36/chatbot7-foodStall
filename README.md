@@ -31,7 +31,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: hotel
+      POSTGRES_DB: foodstall
     volumes:
       - ./db-data/postgres/:/var/lib/postgresql/data/
 ```
