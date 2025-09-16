@@ -1,0 +1,63 @@
+services:
+
+  postgres:
+    image: "postgres:16.4-alpine3.19"
+    ports:
+      - "5432:5432"
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: foodstall
+    volumes:
+      - ./db-data/postgres/:/var/lib/postgresql/data/
+
+  api-fs:
+    image: "cb7-fs-api:1.0.0"
+    # ports:
+    #   - "3008:3008"
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      API_KEY: 47f2ac60-6b77-4e12-ae38-577275cfa621
+      API_LISTEN_PORT: 3008
+      DB_USERNAME: postgres
+      DB_HOST: postgres
+      DB_NAME: foodstall
+      DB_PASSWORD: password
+      DB_PORT: 5432
+
+  web-fs:
+    image: "cb7-fs-web:1.0.0"
+    ports:
+      - "3018:3018"
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      WEB_PORT: 3018
+      API_ACCESS_KEY: 47f2ac60-6b77-4e12-ae38-577275cfa621
+      API_HOSTNAME: api-fs
+      API_PORT: 3008
+      SESSION_SECRET: "TOPJOKEOFTHEDAY"
+
+  web-fs-agent:
+    image: "cb7-fs-web-agent:1.0.0"
+    ports:
+      - "3028:3028"
+    restart: always
+    deploy:
+      mode: replicated
+      replicas: 1
+    environment:
+      WEB_PORT: 3028
+      API_ACCESS_KEY: 47f2ac60-6b77-4e12-ae38-577275cfa621
+      API_HOSTNAME: api-fs
+      API_PORT: 3008
+      SESSION_SECRET: "TOPSECRETOFTHEYEAR"
